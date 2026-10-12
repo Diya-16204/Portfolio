@@ -793,10 +793,12 @@ button {
 .tech-catalog {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
+  align-items: stretch;
   gap: 12px;
 }
 .tech-group {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   border: 1px solid #c7b4ff38;
@@ -818,29 +820,28 @@ button {
   font: 9px var(--mono);
 }
 .tech-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid #c7b4ff45;
-  border-left: 1px solid #c7b4ff45;
-}
-.tech-group-databases .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.tech-tile {
   display: flex;
-  min-width: 0;
-  min-height: 88px;
-  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
+  align-content: center;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 7px 4px;
-  border-right: 1px solid #c7b4ff45;
-  border-bottom: 1px solid #c7b4ff45;
-  background: #101017;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+.tech-tile {
+  display: flex;
+  min-width: max-content;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 3px 8px 3px 4px;
+  border: 1px solid #c7b4ff35;
+  background: #171520;
   color: #eeeaf8;
-  text-align: center;
   transition: background .2s ease, transform .2s ease, border-color .2s ease;
 }
 .tech-tile:hover {
@@ -853,9 +854,10 @@ button {
 .tech-logo {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 11px;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
   background: #242735;
   color: var(--brand, #c9b7ff);
   font: 700 19px/1 var(--display);
@@ -864,14 +866,14 @@ button {
 }
 .tech-icon {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 17px;
+  height: 17px;
   object-fit: contain;
 }
 .tech-name {
-  max-width: 100%;
+  white-space: nowrap;
   color: #f0edf7;
-  font-size: 10px;
+  font-size: 9px;
   line-height: 1.2;
   overflow-wrap: anywhere;
 }
@@ -1406,10 +1408,9 @@ button {
     display: none;
   }
   .tech-catalog { grid-template-columns: 1fr; gap: 10px; }
-  .tech-tile { min-height: 80px; }
-  .tech-logo { width: 38px; height: 38px; }
-  .tech-icon { width: 25px; height: 25px; }
-  .tech-name { font-size: 9px; }
+  .tech-tile { min-height: 32px; gap: 6px; padding-right: 6px; }
+  .tech-logo { flex-basis: 22px; width: 22px; height: 22px; }
+  .tech-icon { width: 15px; height: 15px; }
   .background-section {
     padding-top: 79px;
     padding-bottom: 76px;
